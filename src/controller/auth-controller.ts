@@ -8,6 +8,11 @@ export async function signUp(req: Request, res: Response) {
     const newUser = await authService.postSignUp(user);
     res.sendStatus(httpStatus.CREATED); 
   }catch(err) {
-
+    if(err.name === "ConflictEmailError"){
+      return res.status(httpStatus.CONFLICT).send(err)
+    }
+    if(err.name === "ConflictNameError"){
+      return res.status(httpStatus.CONFLICT).send(err)
+    }
   }
 }
