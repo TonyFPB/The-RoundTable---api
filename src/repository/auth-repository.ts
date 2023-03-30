@@ -1,4 +1,4 @@
-import { prisma } from "@/config"
+import { prisma } from "../config"
 
 async function findUserByEmail(email:string) {
   return prisma.user.findFirst({
