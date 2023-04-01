@@ -42,7 +42,7 @@ const authService = {
   postSignIn
 }
 
-export default authService
+export { authService }
 
 export type NewUserSign = {
   name: string,

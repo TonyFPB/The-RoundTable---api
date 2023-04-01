@@ -1,4 +1,4 @@
-import authService, {NewUserSign} from "../service/auth-service";
+import  { authService, NewUserSign} from "../service";
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 
