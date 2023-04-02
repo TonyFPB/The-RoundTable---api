@@ -12,9 +12,29 @@ async function createPlayer(userId: number, tableId: number ,type: PlayerType, p
   })
 }
 
+async function findPlayerAndTablesByUserId(userId: number) {
+  return prisma.player.findMany({
+    where:{
+      userId
+    },
+    select:{
+      id:true,
+      type:true,
+      Table:{
+        select:{
+          id:true,
+          name:true,
+          BaseForm:true
+        }
+      }
+    }
+  })
+}
+
 
 const playerRepository = {
-  createPlayer
+  createPlayer,
+  findPlayerAndTablesByUserId
 };
 
 export { playerRepository };

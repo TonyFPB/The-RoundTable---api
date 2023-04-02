@@ -1,8 +1,8 @@
 import { tableService } from "@/service";
 import { AuthenticatedRequest } from "../middleware";
+import { notFoundError } from "../errors";
 import { Response } from "express";
 import httpStatus from "http-status";
-
 
 export async function postNewTable(req: AuthenticatedRequest, res: Response,) {
   try{
@@ -19,6 +19,19 @@ export async function postNewTable(req: AuthenticatedRequest, res: Response,) {
     }
   }
 };
+
+export async function getAllTables(req: AuthenticatedRequest, res: Response) {
+  try{
+    const userId = req.userId;
+    console.log(userId)
+    const table = await tableService.findAllTablesFromUser(userId);
+    return res.send(table);
+  }catch(err) {
+    if(err.name === "PlayerTableErrorNotFound"){
+      return res.status(httpStatus.NOT_FOUND).send(err);
+    }
+  }
+}
 
 export type BaseFormType = JSON | number
 

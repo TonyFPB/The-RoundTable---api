@@ -1,4 +1,4 @@
-import { badRequestError, notFoundError } from "../../errors";
+import { badRequestError, notFoundError, playerAtNoTableError } from "../../errors";
 import { BaseFormType } from "../../controller";
 import { baseFormRepository, playerRepository, tableRepository } from "../../repository";
 
@@ -24,9 +24,18 @@ async function createNewTable(userId: number, name: string, form: BaseFormType )
 
 }
 
+async function findAllTablesFromUser(userId: number) {
+  const player = await playerRepository.findPlayerAndTablesByUserId(userId);
+
+  if(player.length === 0) throw playerAtNoTableError();
+
+  return player;
+}
+
 
 const tableService = {
-  createNewTable
+  createNewTable,
+  findAllTablesFromUser
 };
 
 
