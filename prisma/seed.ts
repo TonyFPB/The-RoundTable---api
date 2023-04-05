@@ -2,7 +2,7 @@
 
 
 const verdadeiraLista = {
-  o: [
+  "o": [
     "Nome do personagem",
     "Class e nivel",
     "Antecedente",
@@ -28,7 +28,7 @@ const verdadeiraLista = {
     "Características habilidades"
   ],
 
-  "Nome do Personagem": "",
+  "Nome do Personagem": " XABLAAAAAU ASDOKNMASOKDNAOSNBD",
   "Nome do personagem": "",
   "Class e nivel": "",
   "Antecedente": "",
@@ -39,7 +39,7 @@ const verdadeiraLista = {
   "Bonus de proficiência": "",
 
   "Teste de Resistência": {
-    o: [
+    "o": [
       "Força",
       "Destreza",
       "Inteligência",
@@ -53,7 +53,7 @@ const verdadeiraLista = {
     "Carisma": ""
   },
   "Perícias": {
-    o: [
+   "o": [
       "Acrobacia(Des)",
       "Arcanismo(Int)",
       "Atletismo(For)",
@@ -95,7 +95,7 @@ const verdadeiraLista = {
   "Deslocamento": "",
 
   "Vida": {
-    o: [
+    "o": [
       "PV Totais",
       "PV atuais",
       "PV Temporarios",
@@ -109,7 +109,7 @@ const verdadeiraLista = {
 
   "Ataques e magias": "",
   "Equipamento": {
-    o: [
+   "o": [
       "PC",
       "PP",
       "PE",

@@ -20,6 +20,11 @@ async function findPlayerAndTablesByUserId(userId: number) {
     select:{
       id:true,
       type:true,
+      User:{
+        select:{
+          name: true
+        }
+      },
       Table:{
         select:{
           id:true,
@@ -31,10 +36,37 @@ async function findPlayerAndTablesByUserId(userId: number) {
   })
 }
 
+async function findOnePlayerInTable(userId: number, tableId: number) {
+  return prisma.player.findFirst({
+    where:{
+      userId,
+      tableId
+    },
+    select:{
+      id: true,
+      type: true,
+      PlayerForm: true,
+      User:{
+        select:{
+          name: true
+        }
+      },
+      Table:{
+        select:{
+          id: true,
+          name: true,
+          BaseForm: true
+        }
+      }
+    }
+  })
+}
+
 
 const playerRepository = {
   createPlayer,
-  findPlayerAndTablesByUserId
+  findPlayerAndTablesByUserId,
+  findOnePlayerInTable
 };
 
 export { playerRepository };

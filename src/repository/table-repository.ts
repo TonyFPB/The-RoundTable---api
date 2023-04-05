@@ -9,9 +9,32 @@ async function createTable(name: string, baseFormId:number) {
   })
 }
 
+async function findAllPlayerInMasterTables(tableId: number) {
+  return prisma.table.findUnique({
+    where:{id:tableId},
+    select:{
+      id: true,
+      name: true,
+      BaseForm: true,
+      Player:{
+        select:{
+          id: true,
+          User:{
+            select:{
+              name: true
+            }
+          },
+          type: true,
+          PlayerForm: true
+        }
+      }
+    }
+  })
+}
 
 const tableRepository = {
-  createTable
+  createTable,
+  findAllPlayerInMasterTables
 };
 
 export { tableRepository };
