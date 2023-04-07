@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { loadEnvs } from "./config/envs";
-import { authRouter, tableRouter } from "./router";
+import { authRouter, tableRouter, userRouter } from "./router";
 import { authenticateToken } from "./middleware";
 import { prisma } from "./config";
 
@@ -11,10 +11,11 @@ const server = express()
 server
   .use(cors())
   .use(express.json())
-  .get("/", authenticateToken)
+  .get("/", async (req,res)=>res.send(await prisma.baseForm.findFirst({})))
   .use("/auth", authRouter)
   .use("/table", tableRouter)
+  .use("/user", userRouter)
 
 server.get("/", (req, res)=>res.send("hellow world"));
 
-export default server
+export default server;

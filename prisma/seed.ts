@@ -1,6 +1,35 @@
 
 
 
+
+const aaaaa = [
+  {"name": "Nome do personagem", "value":"", "type":"text", "references":""},
+  
+  {"name": "Classe e nivel", "value":"", "type":"text", "references":""},
+  
+  {"name": "Antecedente", "value":"", "type":"text", "references":""},
+  
+  {"name": "Nome do Jogador", "value":"", "type":"text", "references":""},
+  
+  {"name": "Raça", "value":"", "type":"text", "references":""},
+  
+  {"name": "Alinhamento", "value":"", "type":"text", "references":""},
+  
+  {"name": "Inspiração", "value":"", "type":"text", "references":""},
+  
+  {"name": "Bônus de proficiência", "value":"", "type":"text", "references":""},
+  
+  {"name": "Teste de Resistêcia", "value":"", "type":"tittle", "references":""},
+
+  {"name": "", "value":"", "type":"", "references":"Teste de Resistência"},
+  
+  {"name": "Pericias", "value":"", "type":"tittle", "references":""},
+  
+  {"name": "atletismo", "value":"", "type":"tittle", "references":"Pericias"},
+
+  {"name": "Furtividade", "value":"", "type":"tittle", "references":"Pericias"},
+]
+
 const verdadeiraLista = {
   "o": [
     "Nome do personagem",
