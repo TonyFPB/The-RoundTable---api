@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { loadEnvs } from "./config/envs";
-import { authRouter, tableRouter, userRouter } from "./router";
-import { authenticateToken } from "./middleware";
+import { authRouter, playerRouter, tableRouter, userRouter } from "./router";
 import { prisma } from "./config";
 
 loadEnvs();
@@ -15,6 +14,7 @@ server
   .use("/auth", authRouter)
   .use("/table", tableRouter)
   .use("/user", userRouter)
+  .use("/player", playerRouter)
 
 server.get("/", (req, res) => res.send("hellow world"));
 

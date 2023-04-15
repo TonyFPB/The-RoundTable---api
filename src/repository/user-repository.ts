@@ -13,8 +13,19 @@ async function findUserByName(name: string) {
   });
 }
 
+async function findUserById(id: number) {
+  return prisma.user.findUnique({
+    where:{id},
+    select:{
+      id:true,
+      name:true
+    }
+  })
+}
+
 const userRepository = {
-  findUserByName
+  findUserByName,
+  findUserById
 };
 
 export { userRepository };

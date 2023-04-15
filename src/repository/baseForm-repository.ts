@@ -3,7 +3,7 @@ import { prisma } from "../config";
 async function createForm(form: object) {
   return prisma.baseForm.create({
     data:{
-      form
+      form: form
     }
   });
 }
