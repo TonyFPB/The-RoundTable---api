@@ -11,11 +11,11 @@ const server = express()
 server
   .use(cors())
   .use(express.json())
-  .get("/", async (req,res)=>res.send(await prisma.baseForm.findFirst({})))
+  .get("/health", async(req, res) => { res.send("OK!") })
   .use("/auth", authRouter)
   .use("/table", tableRouter)
   .use("/user", userRouter)
 
-server.get("/", (req, res)=>res.send("hellow world"));
+server.get("/", (req, res) => res.send("hellow world"));
 
 export default server;

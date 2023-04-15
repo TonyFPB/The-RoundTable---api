@@ -4,6 +4,8 @@ import { Router } from "express";
 
 const userRouter = Router();
 
-userRouter.all("/*", authenticateToken).get("/", getUsers);
+userRouter
+  .all("/*", authenticateToken)
+  .get("/search", getUsers);
 
 export { userRouter };

@@ -6,6 +6,7 @@ async function findUserByName(name: string) {
       name: { contains: name }
     },
     select: {
+      id:true,
       name: true
     },
     orderBy:{ name:"asc" }

@@ -40,13 +40,14 @@ async function findOneTable(userId: number, tableId: number): Promise<TableMaste
 
   if (player.type === "MASTER") {
     const tableMaster = await tableRepository.findAllPlayerInMasterTables(player.Table.id);
-    return tableMaster;
+    return {...tableMaster, playerMaster:true};
   };
 
   const tablePlayer: TablePlayer = {
     id: player.Table.id,
     name: player.Table.name,
     BaseForm: player.Table.BaseForm,
+    playerMaster: false,
     Player: {
       id: player.id,
       User: {
@@ -64,6 +65,7 @@ type TablePlayer = {
   id: number,
   name: string,
   BaseForm: BaseForm,
+  playerMaster: boolean,
   Player: {
     id: number,
     User: { name: string },
@@ -75,6 +77,7 @@ type TableMaster = {
   id: number,
   name: string,
   BaseForm: BaseForm,
+  playerMaster: boolean,
   Player: {
     id: number,
     type: PlayerType,
