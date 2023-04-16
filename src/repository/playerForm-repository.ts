@@ -1,18 +1,22 @@
 import { prisma } from "../config"
 
-async function createPlayerForm(form: object) {
-  return prisma.playerForm.create({
-    data:{
-      form:form
+async function upsertPlayerForm(form: object, id?: number) {
+  return prisma.playerForm.upsert({
+    where: { id: id || 0 },
+    update: {
+      form: form
+    },
+    create: {
+      form: form
     }
   })
 }
 
 
 
-const playerFormRepository = {
-  createPlayerForm
 
+const playerFormRepository = {
+  upsertPlayerForm
 };
 
 export { playerFormRepository };
