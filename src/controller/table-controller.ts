@@ -1,4 +1,4 @@
-import { tableService } from "@/service";
+import { tableService } from "../service";
 import { AuthenticatedRequest } from "../middleware";
 import { notFoundError } from "../errors";
 import { Response } from "express";
